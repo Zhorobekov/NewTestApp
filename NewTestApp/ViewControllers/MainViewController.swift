@@ -1,7 +1,7 @@
 import UIKit
 import Kingfisher
 
-class MainViewController: UIViewController {
+final class MainViewController: UIViewController {
     
     @IBOutlet weak var imagesTableView: UITableView!
     
@@ -14,6 +14,8 @@ class MainViewController: UIViewController {
         networkingManager.fetchImages()
     }
 }
+
+//MARK: - Delegate, DataSource
 
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -37,9 +39,10 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         cell.contentConfiguration = content
         return cell
     }
-    
-    
 }
+
+//MARK: - NeteorkingManager
+
 extension MainViewController: NetworkingManagerDelegate {
     func onUpdateImageModel(width model: ImageModel) {
         print("Images")

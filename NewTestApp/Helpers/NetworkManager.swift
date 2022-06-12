@@ -6,3 +6,24 @@
 //
 
 import Foundation
+import Alamofire
+
+struct NetworkingManager {
+    func fetchImages() {
+        let urlString = "https://api.pexels.com/v1/search?query=milk"
+        let heder: HTTPHeaders = ["Authorization": "563492ad6f917000010000017d7180dcfdb24239aba1f03e291579dc"]
+        AF.request(urlString, headers: heder).responseDecodable(of: ImageModel.self) { response in
+            print(response.result)
+            switch response.result {
+            case .success(let model):
+                print(model)
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+}
+
+
+
+

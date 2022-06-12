@@ -21,6 +21,7 @@
 		56BEFA9D2855C27C00CE95F2 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BEFA9C2855C27C00CE95F2 /* MainViewModel.swift */; };
 		56BEFA9F2855C65100CE95F2 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BEFA9E2855C65100CE95F2 /* Model.swift */; };
 		56BEFAA12855C65B00CE95F2 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BEFAA02855C65B00CE95F2 /* NetworkManager.swift */; };
+		56BEFAAC2855FD3600CE95F2 /* CollectionCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BEFAAB2855FD3600CE95F2 /* CollectionCustomCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		56BEFA9C2855C27C00CE95F2 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		56BEFA9E2855C65100CE95F2 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		56BEFAA02855C65B00CE95F2 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		56BEFAAB2855FD3600CE95F2 /* CollectionCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCustomCell.swift; sourceTree = "<group>"; };
 		9BD17BE6BBBE3B4B68C23600 /* Pods-NewTestApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewTestApp.debug.xcconfig"; path = "Target Support Files/Pods-NewTestApp/Pods-NewTestApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -119,7 +121,7 @@
 				245D10192855F4FA003283B5 /* CustomCell */,
 				56BEFA862855BEBE00CE95F2 /* MainViewController.swift */,
 				56BEFA9C2855C27C00CE95F2 /* MainViewModel.swift */,
-				245D101E2855FA6F003283B5 /* FavoriteViewController.swift */,
+				56BEFAA92855FBE900CE95F2 /* FavoriteViewController */,
 				245D10202855FAB7003283B5 /* DetailViewController.swift */,
 			);
 			path = ViewControllers;
@@ -166,6 +168,23 @@
 				56BEFA902855BEC000CE95F2 /* Info.plist */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		56BEFAA92855FBE900CE95F2 /* FavoriteViewController */ = {
+			isa = PBXGroup;
+			children = (
+				56BEFAAA2855FD0A00CE95F2 /* Cell */,
+				245D101E2855FA6F003283B5 /* FavoriteViewController.swift */,
+			);
+			path = FavoriteViewController;
+			sourceTree = "<group>";
+		};
+		56BEFAAA2855FD0A00CE95F2 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				56BEFAAB2855FD3600CE95F2 /* CollectionCustomCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -286,6 +305,7 @@
 			files = (
 				245D10212855FAB7003283B5 /* DetailViewController.swift in Sources */,
 				56BEFAA12855C65B00CE95F2 /* NetworkManager.swift in Sources */,
+				56BEFAAC2855FD3600CE95F2 /* CollectionCustomCell.swift in Sources */,
 				56BEFA9F2855C65100CE95F2 /* Model.swift in Sources */,
 				56BEFA872855BEBE00CE95F2 /* MainViewController.swift in Sources */,
 				56BEFA832855BEBE00CE95F2 /* AppDelegate.swift in Sources */,

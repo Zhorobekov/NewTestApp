@@ -13,6 +13,13 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         networkingManager.fetchImages()
+        networkingManager.delegate = self
+    }
+}
+
+extension MainViewController: NetworkingManagerDelegate {
+    func onUpdateImageModel(width model: ImageModel) {
+        print("Images")
     }
 }
 

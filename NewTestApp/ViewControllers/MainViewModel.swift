@@ -13,7 +13,6 @@ protocol MainViewModelProtocol {
     var imageName: String { get set}
 }
 
-
 class MainViewModel: MainViewModelProtocol {
     var image: Data = Data()
     var photographer: String = ""

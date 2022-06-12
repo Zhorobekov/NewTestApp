@@ -11,7 +11,9 @@ final class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        networkingManager.delegate = self
         networkingManager.fetchImages()
+     
     }
 }
 
@@ -23,21 +25,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        
-        var content = cell.defaultContentConfiguration()
-        
-        let imageData = images[indexPath.row]
-        
-        content.text = imageData.photographer
-        content.secondaryText = imageData.alt
-        let imageView = UIImageView()
-        let url = URL(string: imageData.src.medium)
-        imageView.kf.setImage(with: url)
-        content.image = imageView.image
-        
-        cell.contentConfiguration = content
-        return cell
+      
     }
 }
 
@@ -45,7 +33,8 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension MainViewController: NetworkingManagerDelegate {
     func onUpdateImageModel(width model: ImageModel) {
-        print("Images")
+        images = model.photos
+        imagesTableView.reloadData()
     }
 }
 

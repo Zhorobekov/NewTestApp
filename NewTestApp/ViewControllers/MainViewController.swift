@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MainViewController: UIViewController {
     private var networkingManager = NetworkingManager()
 
     override func viewDidLoad() {

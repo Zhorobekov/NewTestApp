@@ -8,12 +8,11 @@
 import UIKit
 
 class ViewController: UIViewController {
+    private var networkingManager = NetworkingManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        networkingManager.fetchImages()
     }
-
-
 }
 

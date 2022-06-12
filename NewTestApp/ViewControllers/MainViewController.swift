@@ -17,6 +17,11 @@ final class MainViewController: UIViewController {
         imagesTableView.register(nib, forCellReuseIdentifier: "CustomCell")
      
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let detailVC = segue.destination as? DetailViewController else {return}
+        detailVC.imageItem = sender as? ImageItem
+    }
 }
 
 //MARK: - Delegate, DataSource
@@ -42,6 +47,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let image = images[indexPath.row]
         print(image.photographer)
+        performSegue(withIdentifier: "showDetail", sender: image)
     }
 }
 

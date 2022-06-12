@@ -20,3 +20,4 @@ struct ImageItem: Decodable {
 struct ImageSource: Decodable {
     let medium: String
 }
+

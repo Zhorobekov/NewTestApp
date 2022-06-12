@@ -12,6 +12,8 @@
 		245D101D2855F534003283B5 /* CustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 245D101B2855F534003283B5 /* CustomCell.xib */; };
 		245D101F2855FA70003283B5 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245D101E2855FA6F003283B5 /* FavoriteViewController.swift */; };
 		245D10212855FAB7003283B5 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245D10202855FAB7003283B5 /* DetailViewController.swift */; };
+		245D102428560425003283B5 /* SavedImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245D102328560425003283B5 /* SavedImage.swift */; };
+		245D1026285604DA003283B5 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245D1025285604DA003283B5 /* StorageManager.swift */; };
 		56BEFA832855BEBE00CE95F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BEFA822855BEBE00CE95F2 /* AppDelegate.swift */; };
 		56BEFA852855BEBE00CE95F2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BEFA842855BEBE00CE95F2 /* SceneDelegate.swift */; };
 		56BEFA872855BEBE00CE95F2 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56BEFA862855BEBE00CE95F2 /* MainViewController.swift */; };
@@ -29,6 +31,8 @@
 		245D101B2855F534003283B5 /* CustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCell.xib; sourceTree = "<group>"; };
 		245D101E2855FA6F003283B5 /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		245D10202855FAB7003283B5 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		245D102328560425003283B5 /* SavedImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedImage.swift; sourceTree = "<group>"; };
+		245D1025285604DA003283B5 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		2915DCF474B83985142D3622 /* Pods_NewTestApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewTestApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		516A2E9769B21B8F36CA3C24 /* Pods-NewTestApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewTestApp.release.xcconfig"; path = "Target Support Files/Pods-NewTestApp/Pods-NewTestApp.release.xcconfig"; sourceTree = "<group>"; };
 		56BEFA7F2855BEBE00CE95F2 /* NewTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -131,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				56BEFAA02855C65B00CE95F2 /* NetworkManager.swift */,
+				245D1025285604DA003283B5 /* StorageManager.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -139,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				56BEFA9E2855C65100CE95F2 /* Model.swift */,
+				245D102328560425003283B5 /* SavedImage.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -303,8 +309,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				245D102428560425003283B5 /* SavedImage.swift in Sources */,
 				245D10212855FAB7003283B5 /* DetailViewController.swift in Sources */,
 				56BEFAA12855C65B00CE95F2 /* NetworkManager.swift in Sources */,
+				245D1026285604DA003283B5 /* StorageManager.swift in Sources */,
 				56BEFAAC2855FD3600CE95F2 /* CollectionCustomCell.swift in Sources */,
 				56BEFA9F2855C65100CE95F2 /* Model.swift in Sources */,
 				56BEFA872855BEBE00CE95F2 /* MainViewController.swift in Sources */,

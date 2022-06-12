@@ -8,9 +8,15 @@
 import UIKit
 
 class DetailViewController: UIViewController {
+    @IBOutlet private weak var detailImage: UIImageView!
+    @IBOutlet private weak var detailDescription: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+    }
+    
+    @IBAction func didTap(_ sender: UIButton) {
+        
     }
 }

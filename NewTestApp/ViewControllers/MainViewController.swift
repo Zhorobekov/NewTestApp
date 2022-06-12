@@ -33,10 +33,15 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.imageCell.image = UIImage(data: ImageManager.shared.fetchImage(from: imageData.src.medium)!)
         cell.imageCell.layer.cornerRadius = cell.imageCell.bounds.width / 2
-        cell.nameCell.text = imageData.alt 
+        cell.nameCell.text = imageData.alt
         cell.descriptionCell.text = imageData.photographer
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let image = images[indexPath.row]
+        print(image.photographer)
     }
 }
 

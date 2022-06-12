@@ -15,8 +15,7 @@ class CollectionCustomCell: UICollectionViewCell {
         super.awakeFromNib()
     }
     
-    func configure(imageURL: String) {
-        guard let imageData = ImageManager.shared.fetchImage(from: imageURL) else { return }
+    func configure(imageData: Data) {
         favoriteImageView.image = UIImage(data: imageData)
     }
     

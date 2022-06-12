@@ -11,7 +11,7 @@ class FavoriteViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
-    private var favoriteImagesId: [String] = []
+    private var favoriteImages: [SavedImage] = []
     
     private let itemsPerRow: CGFloat = 2
     private let sectionInserts = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
@@ -23,12 +23,13 @@ class FavoriteViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.collectionViewLayout = UICollectionViewFlowLayout()
         
-        
-        print(favoriteImagesId)
+        favoriteImages = StorageManager.shared.fetchImages()
+        print(favoriteImages)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         collectionView.reloadData()
+        print(favoriteImages)
     }
         
 }
@@ -36,15 +37,15 @@ class FavoriteViewController: UIViewController {
 extension FavoriteViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        favoriteImagesId.count
+        favoriteImages.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CollectionCustomCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collection", for: indexPath) as! CollectionCustomCell
         
-        let imageURL = favoriteImagesId[indexPath.row]
+        let imageData = favoriteImages[indexPath.row].image
         
-        cell.configure(imageURL: imageURL)
+        cell.configure(imageData: imageData)
         return cell
     }
 }

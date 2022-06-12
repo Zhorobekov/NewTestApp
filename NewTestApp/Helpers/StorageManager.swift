@@ -16,6 +16,9 @@ class StorageManager {
         write {
             realm.add(image)
             print("saved")
+            
+            let images = fetchImages()
+            print(images[0].image)
         }
     }
     

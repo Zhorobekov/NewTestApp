@@ -24,11 +24,12 @@ class FavoriteViewController: UIViewController {
         collectionView.collectionViewLayout = UICollectionViewFlowLayout()
         
         favoriteImages = StorageManager.shared.fetchImages()
+        print(favoriteImages)
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        favoriteImages = StorageManager.shared.fetchImages()
         collectionView.reloadData()
+        print(favoriteImages)
     }
         
 }

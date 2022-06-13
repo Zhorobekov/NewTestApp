@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VMC-zA-oad">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VMC-zA-oad">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Main-->
+        <!--Search Image-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="NewTestApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -18,8 +19,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Поиск" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4s6-Lh-sTe">
+                                <rect key="frame" x="15" y="88" width="384" height="51"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="VVm-et-dlT">
-                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <rect key="frame" x="0.0" y="139" width="414" height="674"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Xyn-HV-5Sx">
@@ -30,7 +35,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="xtS-ex-hxS" kind="show" identifier="showDetail" id="cGB-OE-gyK"/>
+                                            <segue destination="xtS-ex-hxS" kind="presentation" identifier="showDetail" id="cGB-OE-gyK"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -45,18 +50,22 @@
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="VVm-et-dlT" secondAttribute="bottom" id="7Zf-lb-wAy"/>
                             <constraint firstItem="VVm-et-dlT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="9C2-JS-z5p"/>
-                            <constraint firstItem="VVm-et-dlT" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="eWs-gD-G1E"/>
+                            <constraint firstItem="4s6-Lh-sTe" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="15" id="AtE-9w-4Xh"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4s6-Lh-sTe" secondAttribute="trailing" constant="15" id="d9e-YX-wS9"/>
+                            <constraint firstItem="VVm-et-dlT" firstAttribute="top" secondItem="4s6-Lh-sTe" secondAttribute="bottom" id="gde-5E-9NY"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="VVm-et-dlT" secondAttribute="trailing" id="kTY-SW-r2w"/>
+                            <constraint firstItem="4s6-Lh-sTe" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="pYf-8h-zD5"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Main" image="fanblades" catalog="system" id="iVf-eq-eWj"/>
+                    <navigationItem key="navigationItem" title="Search Image" id="X9Q-du-V17"/>
                     <connections>
                         <outlet property="imagesTableView" destination="VVm-et-dlT" id="0OO-oU-Bel"/>
+                        <outlet property="searchBar" destination="4s6-Lh-sTe" id="keg-Zx-XS7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="939.13043478260875" y="69.642857142857139"/>
+            <point key="canvasLocation" x="-384" y="1523"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="L9P-ks-wFx">
@@ -76,7 +85,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pwl-P3-6Ll">
                                 <rect key="frame" x="20" y="368" width="374" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YMP-q1-khH">
@@ -85,15 +94,19 @@
                                     <constraint firstAttribute="height" constant="53" id="CQR-ko-rEt"/>
                                     <constraint firstAttribute="width" constant="114" id="gpK-WQ-v9f"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <color key="tintColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal">
+                                    <imageReference key="image" image="heart" catalog="system" symbolScale="large"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="31" scale="large"/>
+                                </state>
                                 <connections>
                                     <action selector="didTap:" destination="xtS-ex-hxS" eventType="touchUpInside" id="mgi-AZ-kHm"/>
                                 </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Flj-ol-KcM"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.80085885761589404" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Pwl-P3-6Ll" firstAttribute="leading" secondItem="Flj-ol-KcM" secondAttribute="leading" constant="20" id="1FK-o6-EWH"/>
                             <constraint firstItem="ljG-9X-u28" firstAttribute="top" secondItem="Flj-ol-KcM" secondAttribute="top" constant="50" id="PTp-L8-njR"/>
@@ -108,13 +121,14 @@
                     <connections>
                         <outlet property="detailDescription" destination="Pwl-P3-6Ll" id="mRh-ji-Uor"/>
                         <outlet property="detailImage" destination="ljG-9X-u28" id="YUI-kQ-JXv"/>
+                        <outlet property="likeButton" destination="YMP-q1-khH" id="JdM-bf-lfR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QXw-rb-4iG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1684.057971014493" y="61.607142857142854"/>
+            <point key="canvasLocation" x="78" y="2288"/>
         </scene>
-        <!--Favorite-->
+        <!--Liked Images-->
         <scene sceneID="Hj8-5g-Bll">
             <objects>
                 <viewController id="jy3-cP-mxq" customClass="FavoriteViewController" customModule="NewTestApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -123,7 +137,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7mE-Nc-Bqp">
-                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Jga-ee-nb2">
                                     <size key="itemSize" width="160" height="160"/>
@@ -153,6 +167,7 @@
                                         <size key="customSize" width="160" height="160"/>
                                         <connections>
                                             <outlet property="favoriteImageView" destination="LUC-lp-3yc" id="ens-jy-BHM"/>
+                                            <segue destination="xtS-ex-hxS" kind="show" identifier="collectionCellSegue" id="CXO-ao-MbF"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -167,14 +182,14 @@
                             <constraint firstItem="7mE-Nc-Bqp" firstAttribute="leading" secondItem="1o8-DC-fqY" secondAttribute="leading" id="spp-MN-2gu"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Favorite" image="heart" catalog="system" id="YCe-XA-qC1"/>
+                    <navigationItem key="navigationItem" title="Liked Images" id="FS4-lU-tvO"/>
                     <connections>
                         <outlet property="collectionView" destination="7mE-Nc-Bqp" id="YGS-Gf-qyU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R0i-eD-p99" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2437.68115942029" y="61.607142857142854"/>
+            <point key="canvasLocation" x="512" y="1523"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Zea-LK-0c8">
@@ -187,15 +202,56 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="Lwu-Ar-hMF"/>
-                        <segue destination="jy3-cP-mxq" kind="relationship" relationship="viewControllers" id="cKg-mK-OQk"/>
+                        <segue destination="sMH-51-S4H" kind="relationship" relationship="viewControllers" id="Lwu-Ar-hMF"/>
+                        <segue destination="3zM-s9-Jth" kind="relationship" relationship="viewControllers" id="cKg-mK-OQk"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Dg-ow-rVq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="28.985507246376812" y="69.642857142857139"/>
         </scene>
+        <!--Favorite-->
+        <scene sceneID="wTz-Eo-ypp">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3zM-s9-Jth" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Favorite" image="heart" catalog="system" id="YCe-XA-qC1"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="yCD-qu-WbL">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="jy3-cP-mxq" kind="relationship" relationship="rootViewController" id="y5d-R1-ukO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hhc-cl-x6d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="512" y="820"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="rkD-tw-Ct8">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sMH-51-S4H" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Main" image="fanblades" catalog="system" id="iVf-eq-eWj"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="P0k-dS-EOW">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="4m7-OL-yTK"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0Ow-CI-hOq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-384.05797101449281" y="802.90178571428567"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="cGB-OE-gyK"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="fanblades" catalog="system" width="128" height="116"/>
         <image name="heart" catalog="system" width="128" height="109"/>

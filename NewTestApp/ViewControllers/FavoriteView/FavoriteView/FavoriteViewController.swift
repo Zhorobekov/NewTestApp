@@ -6,30 +6,38 @@
 //
 
 import UIKit
+import Kingfisher
 
 class FavoriteViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
-    private var favoriteImages: [SavedImage] = []
-    
+    private var viewModel: FavoriteViewModelProtocol!
     private let itemsPerRow: CGFloat = 2
     private let sectionInserts = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel = FavoriteViewModel()
    
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.collectionViewLayout = UICollectionViewFlowLayout()
         
-        favoriteImages = StorageManager.shared.fetchImages()
-        print(favoriteImages)
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        collectionView.reloadData()
-        print(favoriteImages)
+        viewModel.getFavoriteImages {
+            self.collectionView.reloadData()
+        }
+    
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let detailVC = segue.destination as? DetailViewController else {return}
+        let indexPath = collectionView.indexPathsForSelectedItems
+        let detailViewModel = viewModel.detailViewModel(at: indexPath![0])
+        detailVC.viewModel = detailViewModel
     }
         
 }
@@ -37,13 +45,13 @@ class FavoriteViewController: UIViewController {
 extension FavoriteViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        favoriteImages.count
+        viewModel.favoriteImages.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collection", for: indexPath) as! CollectionCustomCell
         
-        let imageData = favoriteImages[indexPath.row].image
+        let imageData = viewModel.favoriteImages[indexPath.row].image
         
         cell.configure(imageData: imageData)
         return cell

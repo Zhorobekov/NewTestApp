@@ -7,6 +7,7 @@
 
 import Foundation
 
+
 struct ImageModel: Decodable {
     let photos: [ImageItem]
 }

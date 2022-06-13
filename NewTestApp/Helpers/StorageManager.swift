@@ -15,10 +15,20 @@ class StorageManager {
     func save(image: SavedImage) {
         write {
             realm.add(image)
-            print("saved")
-            
-            let images = fetchImages()
-            print(images[0].image)
+        }
+    }
+    
+    func deleteAll() {
+        write {
+            realm.deleteAll()
+        }
+    }
+    
+    func delete(image: SavedImage) {
+        write {
+            let images = realm.objects(SavedImage.self)
+            guard let index = images.firstIndex(where: {$0.image == image.image}) else { return }
+            realm.delete(images[index])
         }
     }
     

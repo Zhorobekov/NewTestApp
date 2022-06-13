@@ -8,21 +8,19 @@
 import Foundation
 import Alamofire
 
-protocol NetworkingManagerDelegate: AnyObject {
-    func onUpdateImageModel(width model: ImageModel)
+protocol Networking {
+    func fetchImages(with request: String, completion: @escaping ([ImageItem]) -> Void)
 }
 
-struct NetworkingManager {
-    
-    weak var delegate: NetworkingManagerDelegate?
-    
-    func fetchImages() {
-        let urlString = "https://api.pexels.com/v1/search?query=milk"
-        let heder: HTTPHeaders = ["Authorization": "563492ad6f917000010000017d7180dcfdb24239aba1f03e291579dc"]
-        AF.request(urlString, headers: heder).responseDecodable(of: ImageModel.self) { response in
+struct NetworkingManager: Networking {
+   
+    func fetchImages(with request: String, completion: @escaping ([ImageItem]) -> Void) {
+        let urlString = "https://api.pexels.com/v1/search?query=\(request)"
+        let header: HTTPHeaders = ["Authorization": "563492ad6f917000010000017d7180dcfdb24239aba1f03e291579dc"]
+        AF.request(urlString, headers: header).responseDecodable(of: ImageModel.self) { response in
             switch response.result {
             case .success(let model):
-                delegate?.onUpdateImageModel(width: model)
+                completion(model.photos)
             case .failure(let error):
                 print(error)
             }

@@ -23,14 +23,12 @@ class FavoriteViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.collectionViewLayout = UICollectionViewFlowLayout()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         viewModel.getFavoriteImages {
             self.collectionView.reloadData()
         }
-    
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -39,7 +37,6 @@ class FavoriteViewController: UIViewController {
         let detailViewModel = viewModel.detailViewModel(at: indexPath![0])
         detailVC.viewModel = detailViewModel
     }
-        
 }
 
 extension FavoriteViewController: UICollectionViewDelegate, UICollectionViewDataSource {
